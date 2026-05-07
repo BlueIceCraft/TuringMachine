@@ -35,26 +35,17 @@ public static class GoedelGenerator
                isFirst = false;
           }
           
-          
-          Console.WriteLine("State mapping:");
-          foreach (var kvp in stateMapping) Console.WriteLine($"  {kvp.Key} → {kvp.Value}");
-          Console.WriteLine("Symbol mapping:");  
-          foreach (var kvp in symbolMapping) Console.WriteLine($"  {kvp.Key} → {kvp.Value}");
-          
           return sb.ToString();
 
           int GetState(int state)
           {
+               if (state == startState) return 1;
+               if (state == endState) return 2;
+    
                if (stateMapping.TryGetValue(state, out var o))
                     return o;
 
-               if (state == startState)
-                    o = 1;
-               else if (state == endState)
-                    o = 2;
-               else
-                    o = stateMapping.Count + 3;
-
+               o = stateMapping.Count + 3;
                stateMapping.Add(state, o);
                return o;
           }

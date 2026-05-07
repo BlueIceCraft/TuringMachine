@@ -66,32 +66,41 @@ class Machine
                     StepCount = stepCounter
                };
 
+               PrintState(stats);
                if (stepMode)
                {
-                    PrintState(stats);
                     Console.WriteLine("");
                     Console.ReadKey();
+               }
+               else
+               {
+                    Thread.Sleep(50);
                }
           }
 
           return (stats, true);
      }
 
-     public void PrintState(State stats)
+     public static void PrintState(State stats)
      {
           if (stats.ViewTape == null) return;
-          //Console.Clear();
+          Console.Clear();
           Console.WriteLine("Status: ");
           Console.WriteLine("\tcurrentState: " + stats.CurrentState);
           Console.Write("\ttape: ");
           for (var i = 0; i < stats.ViewTape.Length; i++)
           {
-               string val = stats.ViewTape[i] switch
+               var val = stats.ViewTape[i] switch
                {
                     1 => "0",
                     2 => "1",
                     3 => "_",
-                    _ => ""
+                    4 => "X",
+                    5 => "#",
+                    6 => "Z",
+                    7 => "A",
+                    8 => "B",
+                    _ => "?"
                };
                if (i == stats.ViewTape.Length / 2)
                {

@@ -1,6 +1,6 @@
 namespace TuringMachine;
 
-public class Aufg1
+public static class Aufg1
 {
      public static void Run()
      {
@@ -21,7 +21,7 @@ public class Aufg1
 
           var machine = new Machine(tm);
           var (state, accepted) = machine.Execute(testData, stepMode);
-          machine.PrintState(state);
+          Machine.PrintState(state);
           var result = accepted ? "accepted" : "rejected";
           Console.WriteLine($"Turing Machine completed with state: [{result}] in [{state.StepCount}] steps");
      }
