@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Goedelgenerator/Goedelgenerator.csproj" />
+  <Project Path="TuringMachine/TuringMachine.csproj" />
+</Solution>
