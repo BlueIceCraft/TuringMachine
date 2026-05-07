@@ -80,7 +80,7 @@ class Machine
      public void PrintState(State stats)
      {
           if (stats.ViewTape == null) return;
-          Console.Clear();
+          //Console.Clear();
           Console.WriteLine("Status: ");
           Console.WriteLine("\tcurrentState: " + stats.CurrentState);
           Console.Write("\ttape: ");
